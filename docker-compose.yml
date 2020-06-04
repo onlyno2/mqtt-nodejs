@@ -10,24 +10,12 @@ services:
       - ./node_modules:/home/node/app/node_modules
     ports:
       - "18833:18833"
-    depends_on: 
-      - redis
-    networks: 
-      - redis-net
-  redis:
-    image: redis:4.0.5-alpine
-    command: ["redis-server", "--appendonly", "yes"]
-    hostname: redis
-    restart: always
-    ports:
-      - "6379:6379"
-    networks:
-      - redis-net
-    volumes:
-      - redis-data:/data
+      - "1883:1883"
+    
 volumes:
   node_modules:
-  redis-data:
+
 networks:
-  redis-net:
-    driver: bridge
+  default:
+    external:
+      name: iot-laravel-webserver_app-network

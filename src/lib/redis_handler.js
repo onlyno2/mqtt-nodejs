@@ -36,7 +36,7 @@ RedisHandler.getMessage = function(chanel) {
             redisClient.del(key);
             counter--;
             if (counter == 0) {
-              MessageForwarder["forward"]("/api/data", messageList);
+              MessageForwarder["forward"]("/api/store_data", messageList);
               messageList.length = 0;
             }
           }

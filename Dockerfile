@@ -14,4 +14,4 @@ COPY --chown=node:node . .
 
 EXPOSE 18833
 
-CMD [ "node", "broker.js" ]
+CMD [ "nodemon", "broker.js" ]
